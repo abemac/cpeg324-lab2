@@ -15,3 +15,6 @@ mux_4to1.vhdl:
 	$(CC) -a $(LIB) ../mux_4to1.vhdl
 mux_4to1_tb.vhdl:
 	$(CC) -a $(LIB) ../mux_4to1_tb.vhdl
+
+clean:
+	rm *.o *.cf

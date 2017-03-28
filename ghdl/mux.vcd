@@ -1,0 +1,54 @@
+$date
+  Tue Mar 28 19:52:25 2017
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var reg 8 ! a[7:0] $end
+$var reg 8 " b[7:0] $end
+$var reg 8 # c[7:0] $end
+$var reg 8 $ d[7:0] $end
+$var reg 2 % sel[1:0] $end
+$var reg 8 & mux_out[7:0] $end
+$scope module mux $end
+$var reg 8 ' in0[7:0] $end
+$var reg 8 ( in1[7:0] $end
+$var reg 8 ) in2[7:0] $end
+$var reg 8 * in3[7:0] $end
+$var reg 2 + sel[1:0] $end
+$var reg 8 , mux_out[7:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+b00101101 !
+b01111111 "
+b10000000 #
+b11010011 $
+b00 %
+b00101101 &
+b00101101 '
+b01111111 (
+b10000000 )
+b11010011 *
+b00 +
+b00101101 ,
+#5000000
+b01 %
+b01111111 &
+b01 +
+b01111111 ,
+#10000000
+b10 %
+b10000000 &
+b10 +
+b10000000 ,
+#15000000
+b11 %
+b11010011 &
+b11 +
+b11010011 ,
+#20000000
+#25000000
