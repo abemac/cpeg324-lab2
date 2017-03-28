@@ -11,7 +11,7 @@ component shift_reg
 port (	I:	in std_logic_vector (3 downto 0);
 		I_SHIFT_IN: in std_logic;
 		sel:        in std_logic_vector(1 downto 0); -- 00:hold; 01: shift left; 10: shift right; 11: load
-		clock:		in std_logic; 
+		clock:		in std_logic;
 		enable:		in std_logic;
 		O:	out std_logic_vector(3 downto 0)
 );
