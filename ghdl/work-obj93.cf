@@ -1,7 +1,12 @@
 v 4
+file . "../shift_reg_8bit_tb.vhdl" "288ab85b30540ec6cbd1d13eabe375fa7784a8c3" "20170329214127.067":
+  entity shift_reg_8bit_tb at 1( 0) + 0 on 193;
+  architecture behav of shift_reg_8bit_tb at 8( 126) + 0 on 194;
 file . "../shift_reg_tb.vhdl" "1015ab1472e32bab438d81550c636f3ce3ee2300" "20170329203815.499":
   entity shift_reg_tb at 1( 0) + 0 on 181;
-  architecture behav of shift_reg_tb at 8( 116) + 0 on 182;
 file . "../shift_reg.vhdl" "c113f13ec62e3c29488cfd36fc9c9b22b9226f16" "20170329203815.398":
   entity shift_reg at 1( 0) + 0 on 179;
   architecture behav of shift_reg at 14( 433) + 0 on 180;
+file . "../shift_reg_8bit.vhdl" "1df33efb98ec3ee0b2e59e72a0addcc646791f57" "20170329214126.959":
+  entity shift_reg_8bit at 1( 0) + 0 on 191;
+  architecture structural of shift_reg_8bit at 15( 444) + 0 on 192;
