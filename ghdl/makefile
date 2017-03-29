@@ -15,6 +15,17 @@ shift_reg_8bit.vhdl:
 shift_reg_8bit_tb.vhdl:
 	$(CC) -a $(LIB) ../shift_reg_8bit_tb.vhdl
 
+adder: half_adder.vhdl full_adder.vhdl adder_8b.vhdl adder_8b_tb.vhdl
+	$(CC) -e $(LIB) adder_8b_tb
+half_adder.vhdl:
+	$(CC) -a $(LIB) ../half_adder.vhdl
+full_adder.vhdl:
+	$(CC) -a $(LIB) ../full_adder.vhdl
+adder_8b.vhdl:
+	$(CC) -a $(LIB) ../adder_8b.vhdl
+adder_8b_tb.vhdl:
+	$(CC) -a $(LIB) ../adder_8b_tb.vhdl
+
 mux: mux_4to1.vhdl mux_4to1_tb.vhdl
 	$(CC) -e $(LIB) mux_4to1_tb;
 mux_4to1.vhdl:

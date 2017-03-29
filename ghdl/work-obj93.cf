@@ -1,4 +1,10 @@
 v 4
+file . "../adder_8b_tb.vhdl" "6906c1d6660e9eff86ec8d132bfdb61cb371f8e4" "20170329234805.106":
+  entity adder_8b_tb at 1( 0) + 0 on 293;
+  architecture arch of adder_8b_tb at 7( 81) + 0 on 294;
+file . "../full_adder.vhdl" "f4bc9f1aa7276d3b05a0ba8a72a1e54c74aeaa6a" "20170329234804.958":
+  entity full_adder at 1( 0) + 0 on 289;
+  architecture arch of full_adder at 11( 155) + 0 on 290;
 file . "../shift_reg_8bit_tb.vhdl" "288ab85b30540ec6cbd1d13eabe375fa7784a8c3" "20170329214127.067":
   entity shift_reg_8bit_tb at 1( 0) + 0 on 193;
   architecture behav of shift_reg_8bit_tb at 8( 126) + 0 on 194;
@@ -10,3 +16,9 @@ file . "../shift_reg.vhdl" "c113f13ec62e3c29488cfd36fc9c9b22b9226f16" "201703292
 file . "../shift_reg_8bit.vhdl" "1df33efb98ec3ee0b2e59e72a0addcc646791f57" "20170329214126.959":
   entity shift_reg_8bit at 1( 0) + 0 on 191;
   architecture structural of shift_reg_8bit at 15( 444) + 0 on 192;
+file . "../half_adder.vhdl" "7f63e8921bcb585bd8af502a40516daea3a8de11" "20170329234804.902":
+  entity half_adder at 1( 0) + 0 on 287;
+  architecture arch of half_adder at 13( 197) + 0 on 288;
+file . "../adder_8b.vhdl" "3c2fade09b9f36f399281f969a3ea56b7b90881d" "20170329234805.022":
+  entity adder8b at 1( 0) + 0 on 291;
+  architecture arch of adder8b at 13( 291) + 0 on 292;
