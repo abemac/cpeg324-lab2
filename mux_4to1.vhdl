@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity mux_4to1 is
-  generic(word_size : integer);
+  generic(word_size : positive);
   port(in0 : in std_logic_vector((word_size-1) downto 0);
        in1 : in std_logic_vector((word_size-1) downto 0);
        in2 : in std_logic_vector((word_size-1) downto 0);
@@ -18,7 +18,8 @@ begin
     in0 when "00",
     in1 when "01",
     in2 when "10",
-    in3 when others;
+    in3 when "11",
+    "00000000" when others;
 
 
 end architecture behavioral;

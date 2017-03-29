@@ -7,7 +7,7 @@ end mux_4to1_tb;
 architecture behavoiral of mux_4to1_tb is
 
   component mux_4to1 is
-    generic(word_size : integer);
+    generic(word_size : positive);
     port(in0 : in std_logic_vector((word_size-1) downto 0);
          in1 : in std_logic_vector((word_size-1) downto 0);
          in2 : in std_logic_vector((word_size-1) downto 0);
@@ -30,19 +30,19 @@ architecture behavoiral of mux_4to1_tb is
     begin
       sel<="00";
       wait for 5 ns;
-    --  assert mux_out = "00101101" report "bad output" severity error;
+      assert mux_out = "00101101" report "bad output" severity error;
 
       sel<="01";
       wait for 5 ns;
-      --assert mux_out = "01111111" report "bad output" severity error;
+      assert mux_out = "01111111" report "bad output" severity error;
 
       sel<="10";
       wait for 5 ns;
-      --assert mux_out = "10000000" report "bad output" severity error;
+      assert mux_out = "10000000" report "bad output" severity error;
 
       sel<="11";
       wait for 5 ns;
-      --assert mux_out = "11010011" report "bad output" severity error;
+      assert mux_out = "11010011" report "bad output" severity error;
 
       wait for 5 ns;
       report "end of testbench" severity note;

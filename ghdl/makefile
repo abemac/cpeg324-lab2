@@ -16,5 +16,13 @@ mux_4to1.vhdl:
 mux_4to1_tb.vhdl:
 	$(CC) -a $(LIB) ../mux_4to1_tb.vhdl
 
+demux:types.vhdl demux.vhdl demux_tb.vhdl
+	$(CC) -e $(LIB) demux_tb
+demux.vhdl:
+	$(CC) -a $(LIB) ../demux.vhdl
+demux_tb.vhdl:
+	$(CC) -a $(LIB) ../demux_tb.vhdl
+types.vhdl:
+	$(CC) -a $(LIB) ../types.vhdl
 clean:
 	rm *.o *.cf
