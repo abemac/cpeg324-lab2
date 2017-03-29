@@ -30,7 +30,7 @@ process
 type pattern_type is record
 --  The inputs of the shift_reg.
 i: std_logic_vector (3 downto 0);
-i_shift_in, clock, enable: std_logic;
+i_shift_in, enable: std_logic;
 sel: std_logic_vector(1 downto 0);
 --  The expected outputs of the shift_reg.
 o: std_logic_vector (3 downto 0);
@@ -38,8 +38,53 @@ end record;
 --  The patterns to apply.
 type pattern_array is array (natural range <>) of pattern_type;
 constant patterns : pattern_array :=
-(("0001", '1', '0', '0', "11", "0000"),
-("0001", '0', '0', '0', "00", "0001"));
+(("0001", '1', '1', "11", "0001"),--load
+("0001", '0', '1', "00", "0001"),--hold
+("0001", '1', '1', "01", "0011"),--shift left with '1'
+("0001", '0', '1', "01", "0110"),--shift left with '0'
+("0001", '0', '1', "01", "1100"),--shift left with '0'
+("0001", '0', '1', "01", "1000"),--shift left with '0'
+("0001", '0', '1', "01", "0000"),--shift left with '0'
+("0001", '1', '1', "10", "1000"),--shift right with '1'
+("0001", '1', '1', "10", "1100"),--shift right with '1'
+("0001", '0', '1', "10", "0110"),--shift right with '0'
+("0001", '0', '1', "10", "0011"),--shift right with '0'
+("0101", '1', '1', "11", "0101"),--load
+("0101", '0', '1', "00", "0101"),--hold
+("0101", '1', '1', "01", "1011"),--shift left with '1'
+("0101", '0', '1', "01", "0110"),--shift left with '0'
+("0101", '0', '1', "01", "1100"),--shift left with '0'
+("0101", '0', '1', "01", "1000"),--shift left with '0'
+("0101", '0', '1', "01", "0000"),--shift left with '0'
+("0101", '1', '1', "10", "1000"),--shift right with '1'
+("0101", '1', '1', "10", "1100"),--shift right with '1'
+("0101", '0', '1', "10", "0110"),--shift right with '0'
+("0101", '0', '1', "10", "0011"),--shift right with '0'
+--now with enable=0
+("0001", '1', '0', "11", "0000"),--load
+("0001", '0', '0', "00", "0000"),--hold
+("0001", '1', '0', "01", "0000"),--shift left with '1'
+("0001", '0', '0', "01", "0000"),--shift left with '0'
+("0001", '0', '0', "01", "0000"),--shift left with '0'
+("0001", '0', '0', "01", "0000"),--shift left with '0'
+("0001", '0', '0', "01", "0000"),--shift left with '0'
+("0001", '1', '0', "10", "0000"),--shift right with '1'
+("0001", '1', '0', "10", "0000"),--shift right with '1'
+("0001", '0', '0', "10", "0000"),--shift right with '0'
+("0001", '0', '0', "10", "0000"),--shift right with '0'
+("0101", '1', '0', "11", "0000"),--load
+("0101", '0', '0', "00", "0000"),--hold
+("0101", '1', '0', "01", "0000"),--shift left with '1'
+("0101", '0', '0', "01", "0000"),--shift left with '0'
+("0101", '0', '0', "01", "0000"),--shift left with '0'
+("0101", '0', '0', "01", "0000"),--shift left with '0'
+("0101", '0', '0', "01", "0000"),--shift left with '0'
+("0101", '1', '0', "10", "0000"),--shift right with '1'
+("0101", '1', '0', "10", "0000"),--shift right with '1'
+("0101", '0', '0', "10", "0000"),--shift right with '0'
+("0101", '0', '0', "10", "0000")--shift right with '0'
+
+);
 begin
 --  Check each pattern.
 for n in patterns'range loop
@@ -47,9 +92,10 @@ for n in patterns'range loop
 i <= patterns(n).i;
 i_shift_in <= patterns(n).i_shift_in;
 sel <= patterns(n).sel;
-clk <= patterns(n).clock;
+clk <= '0';
 enable <= patterns(n).enable;
---  Wait for the results.
+wait for 1 ns;
+clk<='1';--create rising edge
 wait for 1 ns;
 --  Check the outputs.
 assert o = patterns(n).o

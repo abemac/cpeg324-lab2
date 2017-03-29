@@ -12,7 +12,30 @@ port(	I:	in std_logic_vector (3 downto 0);
 end shift_reg;
 
 architecture behav of shift_reg is
+	signal D: std_logic_vector(3 downto 0);
 begin
-O <= I;	-- Wrong! You must replace it with your implementation.
-end behav;
+	process(clock,enable) is
+	begin
+		if clock'event and clock='1' and enable='1' then--rising edge of clock
+			if(sel="01") then --shift left
+				D(3)<=D(2);
+				D(2)<=D(1);
+				D(1)<=D(0);
+				D(0)<=I_SHIFT_IN;
+			elsif(sel="10") then --shift right
+				D(0)<=D(1);
+				D(1)<=D(2);
+				D(2)<=D(3);
+				D(3)<=I_SHIFT_IN;
+			elsif(sel="11") then --load
+				D<=I;
+			end if;
+		elsif enable='0' then
+			D<="0000";
+		end if;
 
+	end process;
+
+	O<=D;
+
+end behav;
