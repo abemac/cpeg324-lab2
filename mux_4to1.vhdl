@@ -18,8 +18,7 @@ begin
     in0 when "00",
     in1 when "01",
     in2 when "10",
-    in3 when "11",
-    "00000000" when others;
+    in3 when others,
 
 
 end architecture behavioral;
